@@ -20,6 +20,15 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  Color _colorBoton = Colors.amber;
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      _colorBoton = Colors.amber;
+    });
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -90,15 +99,28 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            SizedBox(height: 20),
             //aqui
             //boton normal
-            ElevatedButton(onPressed: () => {}, child: Text('Boton 1')),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _colorBoton = Colors.red;
+                });
+              },
+              child: Text('Boton 1'),
+            ),
+            SizedBox(height: 20),
             //boton con diseño
             ElevatedButton(
-              onPressed: () => {},
+              onPressed: () {
+                setState(() {
+                  _colorBoton = Colors.green;
+                });
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.tealAccent,
-                fixedSize: Size(100, 50),
+                fixedSize: Size(150, 50),
                 side: BorderSide(width: 2),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -112,8 +134,30 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+            SizedBox(height: 20),
             //boton tipo icono
+            IconButton(
+              onPressed: () => {},
+              icon: Icon(Icons.arrow_back),
+              style: IconButton.styleFrom(
+                iconSize: 50,
+                backgroundColor: _colorBoton,
+                side: BorderSide(width: 2),
+              ),
+            ),
+            SizedBox(height: 20),
             //boton que tenga texto e icono
+            TextButton.icon(
+              onPressed: () => {},
+              icon: Icon(Icons.arrow_back),
+              label: Text('Boton 3'),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton.icon(
+              onPressed: () => {},
+              label: Text('Boton 4'),
+              icon: Icon(Icons.arrow_back),
+            ),
           ],
         ),
       ),
