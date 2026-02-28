@@ -91,7 +91,29 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             //aqui
+            //boton normal
             ElevatedButton(onPressed: () => {}, child: Text('Boton 1')),
+            //boton con diseño
+            ElevatedButton(
+              onPressed: () => {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.tealAccent,
+                fixedSize: Size(100, 50),
+                side: BorderSide(width: 2),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: Text(
+                'Boton 2',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            //boton tipo icono
+            //boton que tenga texto e icono
           ],
         ),
       ),
