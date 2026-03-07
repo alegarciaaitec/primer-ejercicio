@@ -8,16 +8,38 @@ class TextFilesScreem extends StatefulWidget {
 }
 
 class _TextFilesScreemState extends State<TextFilesScreem> {
+  final String _titulo = 'Text Files Screem';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         //el appbar de la otra pantalla
-        title: const Text('Text Files Screem'),
+        title: Text(_titulo),
       ),
       //caja de texto con cualquier diseño
-      body: const Center(
-        child: Text('Text Files Screem'),
+      body: Center(
+        child: Column(
+          children: [
+            TextField(),
+            SizedBox(height: 20),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Escribir algo',
+                labelText: 'Campo',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+            TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Password',
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
